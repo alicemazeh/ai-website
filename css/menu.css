@@ -1,0 +1,231 @@
+/* Modern Menu Page Styles */
+:root {
+    --primary-color: #ebf6fa; /* red */
+    --secondary-color: #24d0c4;
+    --dark-color: #2d3436;
+    --light-color: #f9f9f9;
+    --shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+/* Global Styles */
+body {
+    background: var(--light-color);
+    font-family: 'Poppins', sans-serif;
+    color: var(--dark-color);
+}
+
+/* Heading Section */
+.heading {
+    background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+    padding: 3rem 0;
+    text-align: center;
+    margin-bottom: 3rem;
+    animation: fadeIn 1s ease;
+}
+
+.heading h3 {
+    font-size: 3rem;
+    color: rgb(0, 0, 0);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.heading p {
+    font-size: 1.5rem;
+}
+
+.heading p a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.heading p a:hover {
+    text-decoration: underline;
+   color:var(--white);
+}
+
+.heading p span {
+    color: rgba(0, 0, 0, 0.8);
+}
+
+/* Products Section */
+.products {
+    padding: 2rem 5%;
+}
+
+.products .title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--dark-color);
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 1rem;
+}
+
+.products .title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: var(--primary-color);
+}
+
+.box-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 1rem;
+}
+
+.box {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    animation: slideUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.box img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    transition: var(--transition);
+}
+
+.box:hover img {
+    transform: scale(1.05);
+}
+
+.box .cat {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: var(--secondary-color);
+    color: white;
+    border-radius: 25px;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.box .cat:hover {
+    background: var(--primary-color);
+}
+
+.box .name {
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    margin: 1rem 0;
+    font-weight: 600;
+}
+
+.box .flex {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.box .price {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.box .price span {
+    font-size: 1.2rem;
+    margin-right: 0.2rem;
+}
+
+.box .qty {
+    width: 80px;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+/* Action Buttons */
+.box .fas {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: white;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 50%;
+    color: var(--primary-color);
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.box .fas:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Stagger animation for boxes */
+.box:nth-child(1) { animation-delay: 0.1s; }
+.box:nth-child(2) { animation-delay: 0.2s; }
+.box:nth-child(3) { animation-delay: 0.3s; }
+.box:nth-child(4) { animation-delay: 0.4s; }
+.box:nth-child(5) { animation-delay: 0.5s; }
+.box:nth-child(6) { animation-delay: 0.6s; }
+
+/* Empty State */
+.empty {
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--dark-color);
+    padding: 2rem;
+    background: white;
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    margin: 2rem auto;
+    max-width: 600px;
+    animation: fadeIn 0.5s ease;
+}
+
