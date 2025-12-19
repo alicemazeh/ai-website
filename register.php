@@ -7,17 +7,17 @@ $user_id = $_SESSION['user_id'] ?? '';
 
 if (isset($_POST['submit'])) {
 
-   // ✅ Sanitize inputs (PHP 8+ safe)
-   $name   = htmlspecialchars(trim($_POST['name']));
-   $email  = htmlspecialchars(trim($_POST['email']));
-   $number = htmlspecialchars(trim($_POST['number']));
-   $address = ''; // REQUIRED because DB column has no default value
+$name   = htmlspecialchars(trim($_POST['name']));
+$email  = htmlspecialchars(trim($_POST['email']));
+$number = htmlspecialchars(trim($_POST['number']));
+$address = '';
 
-   // ❗ Using sha1 to stay compatible with your current system
+
+   
    $pass  = sha1($_POST['pass']);
    $cpass = sha1($_POST['cpass']);
 
-   // Check if user exists
+   
    $select_user = $conn->prepare(
       "SELECT * FROM users WHERE email = ? OR number = ?"
    );
@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
             $address
          ]);
 
-         // Auto login
+        
          $select_user = $conn->prepare(
             "SELECT * FROM users WHERE email = ? AND password = ?"
          );
